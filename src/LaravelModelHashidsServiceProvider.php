@@ -3,9 +3,13 @@
 namespace Jaacu\LaravelModelHashids;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Schema\Blueprint;
+
+use Vinkla\Hashids\HashidsServiceProvider;  
 
 class LaravelModelHashidsServiceProvider extends ServiceProvider
 {
+
     /**
      * Bootstrap the application services.
      */
@@ -19,9 +23,15 @@ class LaravelModelHashidsServiceProvider extends ServiceProvider
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
+        $this->app->register(HashidsServiceProvider::class);
+
+        Blueprint::macro('hashid', function(){
+            return $this->string('hash_id')->unique()->nullable()->index();
+        });
+
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('laravel-model-hashids.php'),
+                __DIR__.'/../config/config.php' => config_path('hashids.php'),
             ], 'config');
 
             // Publishing the views.
@@ -50,8 +60,10 @@ class LaravelModelHashidsServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'laravel-model-hashids');
-
+        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'hashids');
+        
+        // $this->app['config']->set('hashids', require __DIR__.'/../config/config.php'); 
+        
         // Register the main class to use with the facade
         $this->app->singleton('laravel-model-hashids', function () {
             return new LaravelModelHashids;
