@@ -1,12 +1,20 @@
 <?php
 
+/*
+ * This file is part of Laravel Model Hashids.
+ *
+ * (c) Javier Cabello <jaacu.97@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Jaacu\Tests\LaravelModelHashids;
 
-use GrahamCampbell\TestBench\AbstractPackageTestCase;
-use Vinkla\Hashids\HashidsServiceProvider;
-use Jaacu\LaravelModelHashids\LaravelModelHashidsServiceProvider;
-use Jaacu\Tests\LaravelModelHashids\Model;
 use Illuminate\Database\Schema\Blueprint;
+use Vinkla\Hashids\HashidsServiceProvider;
+use GrahamCampbell\TestBench\AbstractPackageTestCase;
+use Jaacu\LaravelModelHashids\LaravelModelHashidsServiceProvider;
 
 abstract class AbstractTestCase extends AbstractPackageTestCase
 {
@@ -28,6 +36,7 @@ abstract class AbstractTestCase extends AbstractPackageTestCase
             HashidsServiceProvider::class,
         ];
     }
+
     /**
      * Get the service provider class.
      *
@@ -60,11 +69,10 @@ abstract class AbstractTestCase extends AbstractPackageTestCase
         });
 
         Model::create();
-
     }
 
     protected function setUpRoute($app)
     {
-        $app['router']->get('model/{model}','Controller@model')->name('model');
+        $app['router']->get('model/{model}', 'Controller@model')->name('model');
     }
 }

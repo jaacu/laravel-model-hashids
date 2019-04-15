@@ -1,15 +1,22 @@
 <?php
 
+/*
+ * This file is part of Laravel Model Hashids.
+ *
+ * (c) Javier Cabello <jaacu.97@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Jaacu\LaravelModelHashids;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Schema\Blueprint;
-
-use Vinkla\Hashids\HashidsServiceProvider;  
+use Vinkla\Hashids\HashidsServiceProvider;
 
 class LaravelModelHashidsServiceProvider extends ServiceProvider
 {
-
     /**
      * Bootstrap the application services.
      */
@@ -25,7 +32,7 @@ class LaravelModelHashidsServiceProvider extends ServiceProvider
 
         $this->app->register(HashidsServiceProvider::class);
 
-        Blueprint::macro('hashid', function(){
+        Blueprint::macro('hashid', function () {
             return $this->string('hash_id')->unique()->nullable()->index();
         });
 
@@ -61,9 +68,9 @@ class LaravelModelHashidsServiceProvider extends ServiceProvider
     {
         // Automatically apply the package configuration
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'hashids');
-        
-        // $this->app['config']->set('hashids', require __DIR__.'/../config/config.php'); 
-        
+
+        // $this->app['config']->set('hashids', require __DIR__.'/../config/config.php');
+
         // Register the main class to use with the facade
         // $this->app->singleton('laravel-model-hashids', function () {
         //     return new LaravelModelHashids;
