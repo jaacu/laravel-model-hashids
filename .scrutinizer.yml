@@ -18,11 +18,11 @@ checks:
         fix_doc_comments: true
 
 build:
+  environment:
+    php: 7.2
   nodes:
     coverage:
       tests:
-        environment:
-            php: 7.2
         override:
           - command: composer test-coverage
             coverage:
