@@ -26,6 +26,6 @@ build:
         override:
           - command: composer test-coverage
             coverage:
-              file: build/logs/coverage.xml   # <- Set this to where we find the coverage data.
+              file: logs/coverage.xml   # <- Set this to where we find the coverage data.
                                           #    The path is relative to the current directory.
               format: clover
