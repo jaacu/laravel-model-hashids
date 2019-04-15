@@ -11,8 +11,8 @@
 
 namespace Jaacu\LaravelModelHashids;
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Schema\Blueprint;
 use Vinkla\Hashids\HashidsServiceProvider;
 
 class LaravelModelHashidsServiceProvider extends ServiceProvider

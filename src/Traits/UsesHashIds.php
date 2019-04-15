@@ -11,9 +11,9 @@
 
 namespace Jaacu\LaravelModelHashids\Traits;
 
-use Illuminate\Database\Eloquent\Model;
 use ReflectionClass;
 use Vinkla\Hashids\Facades\Hashids;
+use Illuminate\Database\Eloquent\Model;
 
 trait UsesHashIds
 {
