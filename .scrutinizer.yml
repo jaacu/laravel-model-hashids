@@ -21,6 +21,8 @@ build:
   nodes:
     coverage:
       tests:
+        environment:
+            php: 7.2
         override:
           - command: composer test-coverage
             coverage:
