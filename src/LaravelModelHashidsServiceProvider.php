@@ -46,7 +46,7 @@ class LaravelModelHashidsServiceProvider extends ServiceProvider
 
             // Publishing the translation files.
             /*$this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/vendor/laravel-model-hashids'),
+                __DIR__.'/../resour/var/www/test.io/public/proyect-prueba/packages/jaacu/laravel-model-hashids/build/coverage/index.htmlces/lang' => resource_path('lang/vendor/laravel-model-hashids'),
             ], 'lang');*/
 
             // Registering package commands.
@@ -65,8 +65,8 @@ class LaravelModelHashidsServiceProvider extends ServiceProvider
         // $this->app['config']->set('hashids', require __DIR__.'/../config/config.php'); 
         
         // Register the main class to use with the facade
-        $this->app->singleton('laravel-model-hashids', function () {
-            return new LaravelModelHashids;
-        });
+        // $this->app->singleton('laravel-model-hashids', function () {
+        //     return new LaravelModelHashids;
+        // });
     }
 }

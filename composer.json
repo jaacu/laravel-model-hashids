@@ -3,7 +3,8 @@
     "description": "",
     "keywords": [
         "jaacu",
-        "laravel-model-hashids"
+        "laravel-model-hashids",
+        "laravel"
     ],
     "homepage": "https://github.com/jaacu/laravel-model-hashids",
     "license": "MIT",
@@ -21,7 +22,8 @@
         "vinkla/hashids": "^6.0"
     },
     "require-dev": {
-        "orchestra/testbench": "3.8.*",
+        "graham-campbell/analyzer": "^2.1",
+        "graham-campbell/testbench": "^5.2",
         "phpunit/phpunit": "^7.0"
     },
     "autoload": {
@@ -31,7 +33,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Jaacu\\LaravelModelHashids\\Tests\\": "tests"
+            "Jaacu\\Tests\\LaravelModelHashids\\": "tests"
         }
     },
     "scripts": {

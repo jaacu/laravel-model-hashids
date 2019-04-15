@@ -1,4 +1,5 @@
 <?php
+
 namespace Jaacu\LaravelModelHashids\Traits;
 
 use ReflectionClass;
@@ -20,7 +21,7 @@ trait UsesHashIds
 
             $app_name = config('app.short_name') ?? str_limit( config('app.name'), 5, '' );
             $model->update([
-               'hash_id' => $app_name . '_' . $model->getHashShortName() . '_' . Hashids::encode($model->id),
+               'hash_id' => strtolower($app_name) . '_' . strtolower($model->getHashShortName()) . '_' . Hashids::encode($model->id),
             ]);
         });
 
