@@ -4,6 +4,7 @@
 [![Build Status](https://img.shields.io/travis/jaacu/laravel-model-hashids/master.svg?style=flat-square)](https://travis-ci.org/jaacu/laravel-model-hashids)
 [![Quality Score](https://img.shields.io/scrutinizer/g/jaacu/laravel-model-hashids.svg?style=flat-square)](https://scrutinizer-ci.com/g/jaacu/laravel-model-hashids)
 [![Total Downloads](https://img.shields.io/packagist/dt/jaacu/laravel-model-hashids.svg?style=flat-square)](https://packagist.org/packages/jaacu/laravel-model-hashids)
+[![StyleCI](https://github.styleci.io/repos/180469507/shield?branch=master)](https://github.styleci.io/repos/180469507)
 
 This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
 
