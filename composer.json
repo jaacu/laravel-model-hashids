@@ -48,10 +48,7 @@
         "laravel": {
             "providers": [
                 "Jaacu\\LaravelModelHashids\\LaravelModelHashidsServiceProvider"
-            ],
-            "aliases": {
-                "LaravelModelHashids": "Jaacu\\LaravelModelHashids\\LaravelModelHashidsFacade"
-            }
+            ]
         }
     }
 }
