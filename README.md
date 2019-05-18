@@ -6,7 +6,11 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/jaacu/laravel-model-hashids.svg?style=flat-square)](https://packagist.org/packages/jaacu/laravel-model-hashids)
 [![StyleCI](https://github.styleci.io/repos/180469507/shield?branch=master)](https://github.styleci.io/repos/180469507)
 
+Compatible with laravel version 5.8.x
+
 This package allows you to use hashids in your models using the [vinkla/laravel-hashids](https://github.com/vinkla/laravel-hashids) package
+
+This package includes the [vinkla/laravel-hashids](https://github.com/vinkla/laravel-hashids) package
 
 ## Installation
 
@@ -17,12 +21,6 @@ composer require jaacu/laravel-model-hashids
 ```
 
 ## Usage
-
-Publish the config file
-
-```bash
-php artisan vendor:publish --provider="Jaacu\LaravelModelHashids\LaravelModelHashidsServiceProvider"
-```
 
 Add to your model migration the following code
 
@@ -43,7 +41,7 @@ class MyModel extends Model
 }
 ```
 
-Now using default laravel routing methods will use the hashid insted of the normal id
+Now using default laravel routing implicint binding will use the hashid insted of the normal id
 
 ### Examples
 
@@ -67,6 +65,12 @@ $model->getId() // returns: the model <hashid>
 
 ### Config
 
+Publish the config file to change default behavior
+
+```bash
+php artisan vendor:publish --provider="Jaacu\LaravelModelHashids\LaravelModelHashidsServiceProvider"
+```
+
 By default the generated hashid follows this structure: app name + model name + model id hash
 
 -   app name is set by the app.config name and can be overwritten by setting a new 'short_name' in the config/app.php file
@@ -89,6 +93,10 @@ In the config/hashids.php you can set the hash length and salt.
     ],
 ]
 ```
+
+### Docs
+
+For more info on the hash functionality see [vinkla/laravel-hashids](https://github.com/vinkla/laravel-hashids)
 
 ### Changelog
 
