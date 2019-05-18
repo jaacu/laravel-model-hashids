@@ -1,4 +1,4 @@
-# Very short description of the package
+# Laravel Model Hash Id
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/jaacu/laravel-model-hashids.svg?style=flat-square)](https://packagist.org/packages/jaacu/laravel-model-hashids)
 [![Build Status](https://img.shields.io/travis/jaacu/laravel-model-hashids/master.svg?style=flat-square)](https://travis-ci.org/jaacu/laravel-model-hashids)
