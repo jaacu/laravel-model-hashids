@@ -6,7 +6,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/jaacu/laravel-model-hashids.svg?style=flat-square)](https://packagist.org/packages/jaacu/laravel-model-hashids)
 [![StyleCI](https://github.styleci.io/repos/180469507/shield?branch=master)](https://github.styleci.io/repos/180469507)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+This package allows you to use hashids in your models using the [vinkla/laravel-hashids](https://github.com/vinkla/laravel-hashids) package
 
 ## Installation
 
@@ -18,14 +18,76 @@ composer require jaacu/laravel-model-hashids
 
 ## Usage
 
-``` php
-// Usage description here
+Publish the config file
+
+```bash
+php artisan vendor:publish --provider="Jaacu\LaravelModelHashids\LaravelModelHashidsServiceProvider"
 ```
 
-### Testing
+Add to your model migration the following code
 
-``` bash
-composer test
+```php
+...
+$table->hashid();
+...
+```
+
+Then simply add the UsesHashIds trait to your model
+
+```php
+use Jaacu\LaravelModelHashids\Traits\UsesHashIds;
+
+class MyModel extends Model
+{
+    use UsesHashIds;
+}
+```
+
+Now using default laravel routing methods will use the hashid insted of the normal id
+
+### Examples
+
+A model using the trait UsesHashIds
+
+```php
+$model = Model::first();
+```
+
+Generating url
+
+```php
+route('model.show',$model); // output: http://mydomain/model/<hashid>
+```
+
+Getting the hashid
+
+```php
+$model->getId() // returns: the model <hashid>
+```
+
+### Config
+
+By default the generated hashid follows this structure: app name + model name + model id hash
+
+-   app name is set by the app.config name and can be overwritten by setting a new 'short_name' in the config/app.php file
+-   model name is set by the model class name
+-   model hash id is set by the model 'id' hash
+
+This package shares the config file from [vinkla/laravel-hashids](https://github.com/vinkla/laravel-hashids)
+
+In the config/hashids.php you can set the hash length and salt.
+
+```php
+'connections' => [
+    'main' => [
+        'salt' => env('APP_KEY'), // Uses the env app key by default
+        'length' => 6,
+    ],
+    'alternative' => [
+        'salt' => 'your-salt-string',
+        'length' => 'your-length-integer',
+    ],
+]
 ```
 
 ### Changelog
@@ -42,8 +104,8 @@ If you discover any security related issues, please email jaacu.97@gmail.com ins
 
 ## Credits
 
-- [Javier Cabello](https://github.com/jaacu)
-- [All Contributors](../../contributors)
+-   [Javier Cabello](https://github.com/jaacu)
+-   [All Contributors](../../contributors)
 
 ## License
 
